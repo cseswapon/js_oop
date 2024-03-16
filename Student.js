@@ -1,18 +1,20 @@
-const Person = require('./Person');
+const Person = require("./Person");
+const _subjects = Symbol("subjects");
+const _fee = Symbol("fee");
 class Student extends Person {
-    constructor(name,email,subjects,fee){
-        super(name,email)
-        this._subjects = subjects;
-        this._fee = fee;
-    }
+  constructor(name, email, subjects, fee) {
+    super(name, email);
+    this[_subjects] = subjects;
+    this[_fee] = fee;
+  }
 
-    get subjects(){
-        return this._subjects;
-    }
+  get subjects() {
+    return this[_subjects];
+  }
 
-    get fee(){
-        return this._fee
-    }
+  get fee() {
+    return this[_fee];
+  }
 }
 
 module.exports = Student;
